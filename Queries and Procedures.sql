@@ -253,3 +253,6 @@ CREATE INDEX OrderItemsIndexItemId ON OrderItems(ItemId);
 
 -- Index for MenuItems - RestaurantId
 CREATE INDEX MenuItemsIndexRestaurantId ON MenuItems(RestaurantId);
+
+-- Part: 19
+-- Done
