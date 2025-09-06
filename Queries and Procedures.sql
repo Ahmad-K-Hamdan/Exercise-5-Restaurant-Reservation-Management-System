@@ -238,3 +238,18 @@ SELECT * FROM AuditLog;
 
 -- Part: 17
 -- Done
+
+-- Part: 18
+-- Index for Reservations - CustomerId and RestaurantId
+CREATE INDEX ReservationsIndexCustomerId ON Reservations(CustomerId);
+CREATE INDEX ReservationsIndexRestaurantId ON Reservations(RestaurantId);
+
+-- Index for Orders - ReservationId
+CREATE INDEX OrdersIndexReservationId ON Orders(ReservationId);
+
+-- Index for OrderItems - OrderId and ItemId
+CREATE INDEX OrderItemsIndexOrderId ON OrderItems(OrderId);
+CREATE INDEX OrderItemsIndexItemId ON OrderItems(ItemId);
+
+-- Index for MenuItems - RestaurantId
+CREATE INDEX MenuItemsIndexRestaurantId ON MenuItems(RestaurantId);
