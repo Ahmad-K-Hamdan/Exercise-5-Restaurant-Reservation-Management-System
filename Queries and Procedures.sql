@@ -26,7 +26,7 @@ GROUP BY E.EmployeeId, E.FirstName;
 
 -- Part: 6
 DROP VIEW ReservationsReportView;
-CREATE VIEW ReservationsReportView AS
+CREATE OR ALTER VIEW ReservationsReportView AS
 SELECT
     R.ReservationId,
     R.ReservationDate,
@@ -51,7 +51,7 @@ ORDER BY ReservationDate;
 
 -- Part: 7
 DROP VIEW EmployeesReportView;
-CREATE VIEW EmployeesReportView AS
+CREATE OR ALTER VIEW EmployeesReportView AS
 SELECT 
     E.EmployeeId,
     E.FirstName,
@@ -105,7 +105,7 @@ FROM ItemFrequency
 WHERE ranking = 1;
 
 -- Part: 11
-CREATE FUNCTION fn_CalculateRevenue (@RestaurantId INT)
+CREATE OR ALTER FUNCTION fn_CalculateRevenue (@RestaurantId INT)
 RETURNS DECIMAL(10,2)
 AS
 BEGIN
@@ -124,7 +124,7 @@ SELECT dbo.fn_CalculateRevenue(10) AS [Total Restaurant Revenue];
 
 -- Part: 12
 DROP FUNCTION fn_CalculateEmployeeSalary;
-CREATE FUNCTION fn_CalculateEmployeeSalary (@EmployeeId INT)
+CREATE OR ALTER FUNCTION fn_CalculateEmployeeSalary (@EmployeeId INT)
 RETURNS INT
 AS
 BEGIN
@@ -151,7 +151,7 @@ END;
 SELECT dbo.fn_CalculateEmployeeSalary(10) AS [Employee's Salary];
 
 -- Part: 13
-CREATE PROCEDURE sp_ResrvedTablesReport @StartDate DATETIME, @EndDate DATETIME
+CREATE OR ALTER PROCEDURE sp_ResrvedTablesReport @StartDate DATETIME, @EndDate DATETIME
 AS
 BEGIN
     SELECT * FROM RestaurantTables RT
@@ -162,7 +162,7 @@ END;
 EXEC sp_ResrvedTablesReport @StartDate = '2025-09-04', @EndDate = '2025-09-5';
 
 -- Part: 14
-CREATE PROCEDURE sp_AddNewOrder 
+CREATE OR ALTER PROCEDURE sp_AddNewOrder 
     @ReservationId INT, @EmployeeId INT, @OrderDate DATETIME, @TotalAmount DECIMAL(10,2)
 AS
 BEGIN
@@ -188,7 +188,7 @@ SELECT * FROM Orders
 WHERE ReservationId = 101 and EmployeeId = 5;
 
 -- Part: 15
-CREATE PROCEDURE sp_FutureReservedTablesReport
+CREATE OR ALTER PROCEDURE sp_FutureReservedTablesReport
 AS
 BEGIN
     CREATE TABLE #FutureTables (
