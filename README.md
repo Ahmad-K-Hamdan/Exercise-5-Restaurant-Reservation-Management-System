@@ -66,4 +66,4 @@ SOURCE "Queries and Procedures.sql";
 ---
 
 ## 🧱 Database Diagram (ERD)
-[Blank diagram.pdf](https://github.com/user-attachments/files/22986029/Blank.diagram.pdf)
+<img width="851" height="682" alt="image" src="https://github.com/user-attachments/assets/7edf259b-b00c-4456-bb5c-2f707dd70cd7" />
